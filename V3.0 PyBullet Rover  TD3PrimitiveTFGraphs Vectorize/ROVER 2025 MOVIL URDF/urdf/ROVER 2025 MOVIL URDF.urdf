@@ -1,0 +1,893 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="ROVER 2025 MOVIL URDF">
+  <link
+    name="Chasis">
+    <inertial>
+      <origin
+        xyz="0.288438577723893 0.0109292123753549 6.7771748869416E-08"
+        rpy="0 0 0" />
+      <mass
+        value="10" />
+      <inertia
+        ixx="0.0441193140560405"
+        ixy="-2.21609953463795E-09"
+        ixz="2.18954595758735E-08"
+        iyy="0.0763142772480383"
+        iyz="3.8337172520723E-09"
+        izz="0.0335955150266498" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ROVER 2025 MOVIL URDF/meshes/Chasis.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ROVER 2025 MOVIL URDF/meshes/Chasis.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="Rocker_L">
+    <inertial>
+      <origin
+        xyz="-0.016888 -0.050821 -0.015887"
+        rpy="0 0 0" />
+      <mass
+        value="3.409" />
+      <inertia
+        ixx="0.0010374"
+        ixy="-4.9666E-05"
+        ixz="2.3834E-07"
+        iyy="0.0013259"
+        iyz="-2.2722E-06"
+        izz="0.00088528" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ROVER 2025 MOVIL URDF/meshes/Rocker_L.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.89804 0.91765 0.92941 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ROVER 2025 MOVIL URDF/meshes/Rocker_L.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint_Rocker_L"
+    type="revolute">
+    <origin
+      xyz="0.32185 0 0.2909"
+      rpy="0 0 0" />
+    <parent
+      link="Chasis" />
+    <child
+      link="Rocker_L" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-0.5236"
+      upper="0.5236"
+      effort="0"
+      velocity="0" />
+    <dynamics
+      damping="0.1"
+      friction="0.1" />
+  </joint>
+  <link
+    name="Bogie_L">
+    <inertial>
+      <origin
+        xyz="-0.0473219934702857 -0.10000232458926 -0.0634980458171141"
+        rpy="0 0 0" />
+      <mass
+        value="4.959" />
+      <inertia
+        ixx="0.000564122632607546"
+        ixy="-8.72861092983669E-05"
+        ixz="3.68546006648273E-05"
+        iyy="0.000590209221392833"
+        iyz="3.87241365468746E-06"
+        izz="0.000709623220393141" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ROVER 2025 MOVIL URDF/meshes/Bogie_L.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ROVER 2025 MOVIL URDF/meshes/Bogie_L.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint_Bogie_L"
+    type="revolute">
+    <origin
+      xyz="0.25166 -0.13101 0.065599"
+      rpy="0 0 0" />
+    <parent
+      link="Rocker_L" />
+    <child
+      link="Bogie_L" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-0.5236"
+      upper="0.5236"
+      effort="0"
+      velocity="0" />
+    <dynamics
+      damping="0.1"
+      friction="0.1" />
+  </joint>
+  <link
+    name="Rueda_Media_L">
+    <inertial>
+      <origin
+        xyz="-1.41782538607416E-05 -5.28983833586461E-06 -0.0656774133963889"
+        rpy="0 0 0" />
+      <mass
+        value="1.5" />
+      <inertia
+        ixx="0.00509456161848143"
+        ixy="6.65100010201582E-08"
+        ixz="2.22253980665638E-07"
+        iyy="0.00509467286171472"
+        iyz="5.23246354634947E-07"
+        izz="0.00784566878914298" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ROVER 2025 MOVIL URDF/meshes/Rueda_Media_L.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ROVER 2025 MOVIL URDF/meshes/Rueda_Media_L.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint_Rueda_Media_L"
+    type="continuous">
+    <origin
+      xyz="-0.17873 -0.213 0.1555"
+      rpy="0 0 0" />
+    <parent
+      link="Bogie_L" />
+    <child
+      link="Rueda_Media_L" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      effort="20"
+      velocity="1000" />
+    <dynamics
+      damping="0.1"
+      friction="0.1" />
+  </joint>
+  <link
+    name="Direccion_Trasera_L">
+    <inertial>
+      <origin
+        xyz="-1.04384994870088E-06 -0.115237388246396 -0.11321511890596"
+        rpy="0 0 0" />
+      <mass
+        value="3.25" />
+      <inertia
+        ixx="0.00140891940377472"
+        ixy="3.16261705418916E-07"
+        ixz="4.68544041473696E-08"
+        iyy="0.000853513556309629"
+        iyz="-0.000164942063511229"
+        izz="0.00121518305852113" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ROVER 2025 MOVIL URDF/meshes/Direccion_Trasera_L.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ROVER 2025 MOVIL URDF/meshes/Direccion_Trasera_L.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint_Direccion_Trasera_L"
+    type="revolute">
+    <origin
+      xyz="0.17127 -0.0315 -0.070565"
+      rpy="0 0 0" />
+    <parent
+      link="Bogie_L" />
+    <child
+      link="Direccion_Trasera_L" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-1.5708"
+      upper="1.5708"
+      effort="10"
+      velocity="1000" />
+    <dynamics
+      damping="0.1"
+      friction="0.1" />
+  </joint>
+  <link
+    name="Rueda_Trasera_L">
+    <inertial>
+      <origin
+        xyz="-7.46093003556325E-06 -1.31658571650428E-05 -0.0656774133963628"
+        rpy="0 0 0" />
+      <mass
+        value="1.5" />
+      <inertia
+        ixx="0.00509454208194118"
+        ixy="-4.32272588143068E-08"
+        ixz="-1.6607984674026E-07"
+        iyy="0.00509469239825523"
+        iyz="5.43692067157363E-07"
+        izz="0.00784566878914282" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ROVER 2025 MOVIL URDF/meshes/Rueda_Trasera_L.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ROVER 2025 MOVIL URDF/meshes/Rueda_Trasera_L.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint_Rueda_Trasera_L"
+    type="continuous">
+    <origin
+      xyz="0 -0.1815 0.063"
+      rpy="0 0 0" />
+    <parent
+      link="Direccion_Trasera_L" />
+    <child
+      link="Rueda_Trasera_L" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      effort="20"
+      velocity="1000" />
+    <dynamics
+      damping="0.1"
+      friction="0.1" />
+  </joint>
+  <link
+    name="Direccion_Delantera_L">
+    <inertial>
+      <origin
+        xyz="-1.04384994838169E-06 -0.115237388246396 -0.11321511890596"
+        rpy="0 0 0" />
+      <mass
+        value="3.25" />
+      <inertia
+        ixx="0.00140891940377473"
+        ixy="3.16261705418385E-07"
+        ixz="4.68544041469804E-08"
+        iyy="0.000853513556309632"
+        iyz="-0.00016494206351123"
+        izz="0.00121518305852114" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ROVER 2025 MOVIL URDF/meshes/Direccion_Delantera_L.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ROVER 2025 MOVIL URDF/meshes/Direccion_Delantera_L.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint_Direccion_Delantera_L"
+    type="revolute">
+    <origin
+      xyz="-0.27706 -0.16251 -0.0049008"
+      rpy="0 0 0" />
+    <parent
+      link="Rocker_L" />
+    <child
+      link="Direccion_Delantera_L" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-1.5708"
+      upper="1.5708"
+      effort="10"
+      velocity="1000" />
+    <dynamics
+      damping="0.1"
+      friction="0.1" />
+  </joint>
+  <link
+    name="Rueda_Delantera_L">
+    <inertial>
+      <origin
+        xyz="-7.46093003538978E-06 -1.31658571647097E-05 -0.0656774133963627"
+        rpy="0 0 0" />
+      <mass
+        value="1.5" />
+      <inertia
+        ixx="0.00509454208194127"
+        ixy="-4.32272588315615E-08"
+        ixz="-1.66079846734122E-07"
+        iyy="0.00509469239825524"
+        iyz="5.43692067162731E-07"
+        izz="0.00784566878914289" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ROVER 2025 MOVIL URDF/meshes/Rueda_Delantera_L.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ROVER 2025 MOVIL URDF/meshes/Rueda_Delantera_L.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint_Rueda_Delantera_L"
+    type="continuous">
+    <origin
+      xyz="0 -0.1815 0.063"
+      rpy="0 0 0" />
+    <parent
+      link="Direccion_Delantera_L" />
+    <child
+      link="Rueda_Delantera_L" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1.5708"
+      upper="1.5708"
+      effort="20"
+      velocity="1000" />
+    <dynamics
+      damping="0.1"
+      friction="0.1" />
+  </joint>
+  <link
+    name="Rocker_R">
+    <inertial>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <mass
+        value="3.409" />
+      <inertia
+        ixx="0"
+        ixy="0"
+        ixz="0"
+        iyy="0"
+        iyz="0"
+        izz="0" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ROVER 2025 MOVIL URDF/meshes/Rocker_R.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ROVER 2025 MOVIL URDF/meshes/Rocker_R.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint_Rocker_R"
+    type="revolute">
+    <origin
+      xyz="0.32185 0 -0.2909"
+      rpy="0 0 0" />
+    <parent
+      link="Chasis" />
+    <child
+      link="Rocker_R" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-0.5236"
+      upper="0.5236"
+      effort="0"
+      velocity="0" />
+    <dynamics
+      damping="0.1"
+      friction="0.1" />
+  </joint>
+  <link
+    name="Bogie_R">
+    <inertial>
+      <origin
+        xyz="-0.047765 -0.10063 0.064313"
+        rpy="0 0 0" />
+      <mass
+        value="4.959" />
+      <inertia
+        ixx="0.0005334"
+        ixy="-6.6107E-05"
+        ixz="-3.4349E-05"
+        iyy="0.00056043"
+        iyz="-3.8724E-06"
+        izz="0.00065556" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ROVER 2025 MOVIL URDF/meshes/Bogie_R.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ROVER 2025 MOVIL URDF/meshes/Bogie_R.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint_Bogie_R"
+    type="revolute">
+    <origin
+      xyz="0.25166 -0.13101 -0.065599"
+      rpy="0 0 0" />
+    <parent
+      link="Rocker_R" />
+    <child
+      link="Bogie_R" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-0.5236"
+      upper="0.5236"
+      effort="0"
+      velocity="0" />
+    <dynamics
+      damping="0.1"
+      friction="0.1" />
+  </joint>
+  <link
+    name="Rueda_Media_R">
+    <inertial>
+      <origin
+        xyz="-1.41771139818281E-05 -5.29137608606955E-06 0.0656821054863143"
+        rpy="0 0 0" />
+      <mass
+        value="1.5" />
+      <inertia
+        ixx="0.00509456185644659"
+        ixy="6.64573397514058E-08"
+        ixz="-2.22220630402095E-07"
+        iyy="0.00509467313273941"
+        iyz="-5.23321704678963E-07"
+        izz="0.00784566880527025" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ROVER 2025 MOVIL URDF/meshes/Rueda_Media_R.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ROVER 2025 MOVIL URDF/meshes/Rueda_Media_R.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint_Rueda_Media_R"
+    type="continuous">
+    <origin
+      xyz="-0.17873 -0.213 -0.1555"
+      rpy="0 0 0" />
+    <parent
+      link="Bogie_R" />
+    <child
+      link="Rueda_Media_R" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="20"
+      velocity="1000" />
+    <dynamics
+      damping="0.1"
+      friction="0.1" />
+  </joint>
+  <link
+    name="Direccion_Trasera_R">
+    <inertial>
+      <origin
+        xyz="-1.4183369628773E-06 -0.115237370236861 0.113215114964309"
+        rpy="0 0 0" />
+      <mass
+        value="3.25" />
+      <inertia
+        ixx="0.00140891975002138"
+        ixy="3.1699945700244E-07"
+        ixz="-4.74293620196165E-08"
+        iyy="0.000853514136619031"
+        iyz="0.000164942038379824"
+        izz="0.00121518320306354" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ROVER 2025 MOVIL URDF/meshes/Direccion_Trasera_R.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ROVER 2025 MOVIL URDF/meshes/Direccion_Trasera_R.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint_Direccion_Trasera_R"
+    type="revolute">
+    <origin
+      xyz="0.17127 -0.0315 0.070565"
+      rpy="0 0 0" />
+    <parent
+      link="Bogie_R" />
+    <child
+      link="Direccion_Trasera_R" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-1.5708"
+      upper="1.5708"
+      effort="10"
+      velocity="1000" />
+    <dynamics
+      damping="0.1"
+      friction="0.1" />
+  </joint>
+  <link
+    name="Rueda_Trasera_R">
+    <inertial>
+      <origin
+        xyz="-7.45906839494381E-06 -1.31663024416917E-05 0.0656821054862859"
+        rpy="0 0 0" />
+      <mass
+        value="1.5" />
+      <inertia
+        ixx="0.00509454238542716"
+        ixy="-4.32526822157421E-08"
+        ixz="1.66153828608011E-07"
+        iyy="0.00509469260375968"
+        iyz="-5.43728351436261E-07"
+        izz="0.00784566880527031" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ROVER 2025 MOVIL URDF/meshes/Rueda_Trasera_R.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ROVER 2025 MOVIL URDF/meshes/Rueda_Trasera_R.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint_Rueda_Trasera_R"
+    type="continuous">
+    <origin
+      xyz="0 -0.1815 -0.063"
+      rpy="0 0 0" />
+    <parent
+      link="Direccion_Trasera_R" />
+    <child
+      link="Rueda_Trasera_R" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      effort="20"
+      velocity="1000" />
+    <dynamics
+      damping="0.1"
+      friction="0.1" />
+  </joint>
+  <link
+    name="Direccion_Delantera_R">
+    <inertial>
+      <origin
+        xyz="-1.4183369623777E-06 -0.115237370236861 0.11321511496431"
+        rpy="0 0 0" />
+      <mass
+        value="3.25" />
+      <inertia
+        ixx="0.00140891975002136"
+        ixy="3.16999457002059E-07"
+        ixz="-4.74293620188041E-08"
+        iyy="0.000853514136619024"
+        iyz="0.00016494203837982"
+        izz="0.00121518320306352" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ROVER 2025 MOVIL URDF/meshes/Direccion_Delantera_R.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ROVER 2025 MOVIL URDF/meshes/Direccion_Delantera_R.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint_Direccion_Delantera_R"
+    type="revolute">
+    <origin
+      xyz="-0.27706 -0.16251 0.0049008"
+      rpy="0 0 0" />
+    <parent
+      link="Rocker_R" />
+    <child
+      link="Direccion_Delantera_R" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-1.5708"
+      upper="1.5708"
+      effort="10"
+      velocity="1000" />
+    <dynamics
+      damping="0.1"
+      friction="0.1" />
+  </joint>
+  <link
+    name="Rueda_Delantera_R">
+    <inertial>
+      <origin
+        xyz="-7.45906839449972E-06 -1.31663024435791E-05 0.0656821054862848"
+        rpy="0 0 0" />
+      <mass
+        value="1.5" />
+      <inertia
+        ixx="0.00509454238542721"
+        ixy="-4.32526822051539E-08"
+        ixz="1.66153828614882E-07"
+        iyy="0.00509469260375968"
+        iyz="-5.43728351457097E-07"
+        izz="0.00784566880527035" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ROVER 2025 MOVIL URDF/meshes/Rueda_Delantera_R.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ROVER 2025 MOVIL URDF/meshes/Rueda_Delantera_R.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint_Rueda_Delantera_R"
+    type="continuous">
+    <origin
+      xyz="0 -0.1815 -0.063"
+      rpy="0 0 0" />
+    <parent
+      link="Direccion_Delantera_R" />
+    <child
+      link="Rueda_Delantera_R" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      effort="20"
+      velocity="1000" />
+    <dynamics
+      damping="0.1"
+      friction="0.1" />
+  </joint>
+</robot>

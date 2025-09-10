@@ -1,0 +1,1 @@
+controller_joint_names: ['', 'Joint_Rocker_L', 'Joint_Bogie_L', 'Joint_Rueda_Media_L', 'Joint_Direccion_Trasera_L', 'Joint_Rueda_Trasera_L', 'Joint_Direccion_Delantera_L', 'Joint_Rueda_Delantera_L', 'Joint_Rocker_R', 'Joint_Bogie_R', 'Joint_Rueda_Media_R', 'Joint_Direccion_Trasera_R', 'Joint_Rueda_Trasera_R', 'Joint_Direccion_Delantera_R', 'Joint_Rueda_Delantera_R', ]

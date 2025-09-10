@@ -1,0 +1,14 @@
+# Archivos temporales
+*.csv
+*.zip
+*.pkl
+*.pyc
+__pycache__/
+
+# Logs de TensorBoard
+logs/
+*.tfevents.*
+
+# Checkpoints
+tmp/
+checkpoints/
