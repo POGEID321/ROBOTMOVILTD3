@@ -21,10 +21,13 @@ class EnviromentGymBullet(gym.Env):
         # Crear Enviroment
         self.player = Env.Player()
         self.goal = Env.Goal()
-
-        self.obstacles = []
+        
+        #Obstaculos
+        self.Numobstacles = 0
+            
         self.Pgoal = [[0, 2], [2, 2], [2, 0], [2, -2], [0, -2], [-2, -2], [-2, 0], [-2, 2]]
         self.Pplayer = [self.player.x,self.player.y]
+        self.obstacles = []
         self.xstart = 0
         self.ystart = 0
         self.interaction = 0
@@ -53,7 +56,7 @@ class EnviromentGymBullet(gym.Env):
             local_to   = [dx,dy,0]  # dirección en XY
 
             # Transformar al mundo
-            world_from, _ = p.multiplyTransforms(sensor_pos, sensor_orn, local_from, [0,0,0,1])
+            world_from = sensor_pos
             world_to, _   = p.multiplyTransforms(sensor_pos, sensor_orn, local_to, [0,0,0,1])
 
             ray_from.append(world_from)
@@ -61,19 +64,24 @@ class EnviromentGymBullet(gym.Env):
 
         # Lanzar todos los rayos
         results = p.rayTestBatch(ray_from, ray_to)
-        p.removeAllUserDebugItems()
+    
+        # p.removeAllUserDebugItems()
         # Procesar distancias
-        distances = []
+        robot = []
+        obstacule = []
         for r in results:
-            hit_uid, hit_fraction = r[0], r[2]
-            dist = hit_fraction * self.ray_length if hit_uid != -1 else self.ray_length
-            distances.append(dist)
+            x1 = r[3][0]
+            y1 = r[3][1]
+            x0 = sensor_pos[0]
+            y0 = sensor_pos[1]
+            robot.append([x0,y0])
+            obstacule.append([x1,y1])
+        
+        # for i, r in enumerate(results):
+        #     color = [1, 0, 0] if r[0] != -1 else [0, 1, 0]  # rojo si impacta, verde si libre
+        #     p.addUserDebugLine(ray_from[i], ray_to[i], lineColorRGB=color, lineWidth=1, lifeTime=0.05)
 
-        for i, r in enumerate(results):
-            color = [1, 0, 0] if r[0] != -1 else [0, 1, 0]  # rojo si impacta, verde si libre
-            p.addUserDebugLine(ray_from[i], ray_to[i], lineColorRGB=color, lineWidth=1, lifeTime=0.05)
-
-        return distances
+        return robot, obstacule
 
     def get_observation_position(self):
 
@@ -141,8 +149,34 @@ class EnviromentGymBullet(gym.Env):
 
             self.player.locate(px,py)
             self.goal.locate(gx,gy)
+            
+        for obj_id in self.obstacles:
+            p.removeBody(obj_id.id)
+        self.obstacles = []
+        Pobstacule = np.zeros((self.Numobstacles,2))
 
+        min_dist = 1.0  # distancia mínima entre obstáculos
 
+        for i in range(self.Numobstacles):
+            valid = False
+            while not valid:
+                ox = self.rng.integers(low=-Env.WIDTH//2, high=(Env.WIDTH//2)+1)
+                oy = self.rng.integers(low=-Env.HEIGHT//2, high=(Env.HEIGHT//2)+1)
+
+                # condiciones de separación
+                too_close_to_goal = abs(ox - gx) < 0.7 and abs(oy - gy) < 0.7
+                too_close_to_robot = abs(ox - px) < 1.4 and abs(oy - py) < 1.4
+
+                # revisar separación con obstáculos anteriores
+                too_close_to_others = any(
+                    np.linalg.norm(Pobstacule[j] - np.array([ox, oy])) < min_dist
+                    for j in range(i)
+                )
+
+                if not (too_close_to_goal or too_close_to_robot or too_close_to_others):
+                    valid = True
+                    self.obstacles.append(Env.Obstacle(ox, oy))
+                    Pobstacule[i] = [ox, oy]
 
         self.interaction = 0
         obs = self.get_observation_position()

@@ -5,12 +5,16 @@ import numpy as np
 import keyboard
 # from src import ControlGamesir
 import math
+from src import OccupancyGrid
+import matplotlib.pyplot as plt
 
 # Control = ControlGamesir.GameSirController()
 env = gym.make("Milimars-v0-Bullet", render_mode="human", disable_env_checker=True)
-
+InternFunction = env.unwrapped
 n_Episodes = 100
 Meta = 0
+Gridmap = OccupancyGrid.OccupancyGrid2D(20, 20, 0.1)
+Gridmap.run()
 
 for i in range(n_Episodes):
 
@@ -21,6 +25,7 @@ for i in range(n_Episodes):
     obs_start, _ = env.reset(options="Random")
     observation = obs_start[3:]
     action = np.zeros(2)
+    Gridmap.reset_Grid()
 
     while not done: #and not truncated:
 
@@ -55,8 +60,13 @@ for i in range(n_Episodes):
 
         new_observation, reward, done, truncated, info = env.step(action)
         observation = new_observation
+
+        Grid = InternFunction.get_observation_vision()
+        for i in range(len(Grid[0])):
+            Gridmap.update_ray(Grid[0][i], Grid[1][i])
+        Gridmap.decay_step()
         
-        print("\rReward", round(float(reward),4), np.round(observation,4), end="                 ", flush=True)
+        # print("\rReward", round(float(reward),4), np.round(observation,4), end="                 ", flush=True)
         
         if done == True:
             Meta+=1

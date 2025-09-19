@@ -6,7 +6,7 @@ import math
 import numpy as np
 import random
 
-WIDTH, HEIGHT = 8, 8
+WIDTH, HEIGHT = 10, 10
 
 class Player():
     def __init__(self,x_start=0, y_start=0):
@@ -16,7 +16,7 @@ class Player():
         self.y = y_start
         if p.isConnected():
 
-            self.plane = p.createCollisionShape(p.GEOM_BOX, halfExtents=[10, 10, 0.05])
+            self.plane = p.createCollisionShape(p.GEOM_BOX, halfExtents=[WIDTH, HEIGHT, 0.05])
             p.createMultiBody(baseMass=0, baseCollisionShapeIndex=self.plane, basePosition=[0, 0, -0.05])
 
             # p.setAdditionalSearchPath(pybullet_data.getDataPath()) #Plano
@@ -31,7 +31,6 @@ class Player():
             self.Robot = p.loadURDF( fileName=urdf_path, basePosition=[0, 0, 0.45], 
                                     useFixedBase=False, 
                                     baseOrientation=p.getQuaternionFromEuler([math.radians(90), 0, math.radians(-90)])) # Cargar tu robot
-            
             
             p.changeDynamics(self.Robot, 2, restitution=0.0, lateralFriction=1.2)
             p.changeDynamics(self.Robot, 4, restitution=0.0, lateralFriction=1.2)
@@ -154,12 +153,13 @@ class Obstacle():
         super().__init__()
 
         forma = random.choice(["rectangulo", "cilindro"])
+        self.id = 0
 
         if forma == "rectangulo":
             half_extents = [random.uniform(0.01, 1), random.uniform(0.01, 1), 0.5]     #width, lenght, height 
             collision_shape = p.createCollisionShape(p.GEOM_BOX, halfExtents=half_extents)
             rotation = random.uniform(0, 1.57)
-            p.createMultiBody(baseMass=0,
+            self.id = p.createMultiBody(baseMass=0,
                               baseCollisionShapeIndex=collision_shape,
                               basePosition=[x_start, y_start, half_extents[2]],
                               baseOrientation=p.getQuaternionFromEuler([0, 0, math.radians(rotation)])
@@ -169,6 +169,6 @@ class Obstacle():
             radio = random.uniform(0.01, 1)
             height = random.uniform(0.01, 1)
             collision_shape = p.createCollisionShape(p.GEOM_CYLINDER, radius=radio, height=height)
-            p.createMultiBody(baseMass=0,
+            self.id = p.createMultiBody(baseMass=0,
                               baseCollisionShapeIndex=collision_shape,
                               basePosition=[x_start, y_start, height/2])

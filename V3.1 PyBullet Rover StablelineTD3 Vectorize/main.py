@@ -22,13 +22,14 @@ for ep in range(n_test_episodes):
     total_reward = 0
     step = 0
 
-    while not done and not truncated:
+    while not done and NAchivedLocations < 10:
         
         if step % 5 == 0: action, _ = model.predict(obs, deterministic=True)
         obs, reward, done, truncated, info = env.step(action)
         total_reward += reward
         step += 1
         print("\r", round(reward,4), obs, flush=True)
+        NAchivedLocations += truncated
     print(f"✅ Episodio {ep+1} finalizado | Recompensa total: {total_reward:.2f} | Pasos: {step}")
 
 env.close()

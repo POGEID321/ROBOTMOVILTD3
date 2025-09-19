@@ -1,0 +1,10 @@
+{
+    "python-envs.pythonProjects": [
+        {
+            "path": "",
+            "envManager": "ms-python.python:system",
+            "packageManager": "ms-python.python:pip"
+        }
+    ],
+    "cmake.sourceDirectory": "C:/Users/DIEGO PIRAZAN/Documents/S10/ROBOTMOVILTD3/V3.1 PyBullet Rover StablelineTD3 Vectorize/ROVER 2025 MOVIL URDF"
+}
